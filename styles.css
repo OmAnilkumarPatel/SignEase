@@ -1,0 +1,137 @@
+:root {
+  --bg: #0b1020;
+  --card: #151d35;
+  --card-soft: #202a47;
+  --text: #e8edff;
+  --muted: #a9b4d6;
+  --accent: #66d9ef;
+  --accent-strong: #3ab4cc;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #111a33, var(--bg));
+  min-height: 100vh;
+}
+
+.app {
+  width: min(960px, 92vw);
+  margin: 2rem auto;
+}
+
+header h1 { margin-bottom: .2rem; }
+header p { color: var(--muted); }
+
+.tabs {
+  display: flex;
+  gap: .75rem;
+  margin: 1.25rem 0;
+}
+
+.tab {
+  background: var(--card);
+  border: 1px solid #324169;
+  color: var(--text);
+  padding: .6rem .95rem;
+  border-radius: .65rem;
+  cursor: pointer;
+}
+
+.tab.is-active {
+  background: var(--accent-strong);
+  border-color: var(--accent);
+}
+
+.panel { display: none; }
+.panel.is-active { display: grid; gap: 1rem; }
+
+#translator {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.input-card,
+.animation-card,
+#history {
+  background: var(--card);
+  border: 1px solid #2e3a60;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+label { display: block; margin-bottom: .5rem; font-weight: 600; }
+textarea {
+  width: 100%;
+  min-height: 140px;
+  border-radius: .75rem;
+  border: 1px solid #3b4b77;
+  background: var(--card-soft);
+  color: var(--text);
+  padding: .75rem;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; }
+button {
+  border: 0;
+  border-radius: .6rem;
+  padding: .6rem .9rem;
+  background: var(--accent);
+  color: #07202a;
+  font-weight: 700;
+  cursor: pointer;
+}
+button.secondary { background: #ffe08a; color: #472f00; }
+button.ghost { background: transparent; color: var(--muted); border: 1px solid #44537d; }
+
+.status { color: var(--muted); font-size: .95rem; }
+
+.live-sign {
+  background: var(--card-soft);
+  border-radius: .9rem;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  gap: .3rem;
+  border: 1px dashed #3f4d72;
+}
+
+.live-sign img {
+  width: min(230px, 65%);
+  height: auto;
+  border-radius: .7rem;
+  background: #fff;
+}
+
+#signLetter { font-size: 1.7rem; font-weight: 800; margin: 0 0 .8rem; }
+.preview {
+  margin-top: .8rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.help { color: var(--muted); margin-top: 0; }
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .7rem;
+}
+.history-list li {
+  border: 1px solid #324169;
+  border-radius: .7rem;
+  padding: .7rem;
+  background: var(--card-soft);
+}
+.history-list time {
+  display: block;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+@media (max-width: 640px) {
+  .app { margin: 1rem auto; }
+  .live-sign { min-height: 260px; }
+}

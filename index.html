@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignEase | Text/Audio to ASL</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>SignEase</h1>
+      <p>Translate text or speech into an ASL fingerspelling animation.</p>
+    </header>
+
+    <nav class="tabs" aria-label="Primary">
+      <button class="tab is-active" data-tab="translator">Translator</button>
+      <button class="tab" data-tab="history">History</button>
+    </nav>
+
+    <section id="translator" class="panel is-active" aria-live="polite">
+      <div class="input-card">
+        <label for="inputText">Enter text to translate</label>
+        <textarea id="inputText" placeholder="Example: Hello friend"></textarea>
+
+        <div class="actions">
+          <button id="translateBtn">Translate to ASL</button>
+          <button id="voiceBtn" class="secondary">🎙️ Speak</button>
+          <button id="clearBtn" class="ghost">Clear</button>
+        </div>
+        <p id="status" class="status">Ready.</p>
+      </div>
+
+      <div class="animation-card">
+        <h2>Live ASL animation</h2>
+        <div class="live-sign" id="liveSign">
+          <img id="signImage" alt="ASL sign frame" src="" />
+          <p id="signLetter">–</p>
+        </div>
+        <div id="translationPreview" class="preview"></div>
+      </div>
+    </section>
+
+    <section id="history" class="panel">
+      <h2>Translation History</h2>
+      <p class="help">Latest translations are saved in your browser.</p>
+      <ul id="historyList" class="history-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
